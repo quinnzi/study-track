@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#e{
+    display: none;
+}
+#e{
+    display: none;
+}
+body{
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+}
+#canvas1{
+    border: black 2px solid;
+    background-color: rgb(225, 249, 255);
+max-width: 100%;
+max-height: 100%;
+
+display: none;
+}
+
+#witch{
+    display: none;
+}
+#bac{
+    display: none;
+}
+#floor{
+    display: none;
+}
+#witchF{
+    display: none;
+}
+
+p{
+    font-family: Rubik;
+    font-size: 1.3vw;
+    display: none;
+}
+#dia{
+    background-color: #fbfbfb;
+    border: 5px  #537a52 groove;
+    color: #2d282f;
+    display: none;
+    width: 60%;
+        position: absolute;
+    top: 5vh;
+     min-height: 15vh;
+}
+#dia div{
+    width: 80%;
+}
+#char{
+    background-color:  #537a52;
+    color: #fbfbfb;
+    font-size: 4vw;
+    width: 20%;
+    text-align: center;
+    padding: 2rem;
+}
+#log{
+    padding: 2rem;
+    text-align:center;
+      font-family: VT323;
+      font-size: 2.5vw;
+}
+h1{
+    font-family: VT323;
+    font-size: 10vw;
+    color: #8f5677;
+    
+}
+#int{
+    position: absolute;
+    bottom: 20vh;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    font-family: VT323;
+     font-size: 2.3vw;
+}
+#gameStart{
+    background-color: #fbfbfb;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#dead{
+    background-color: #2d282e;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:  #dc9593;
+}
+
+button{
+    background-color: #fbfbfb;
+    border: #8f5677 4px groove;
+    border-radius: 25px;
+    font-size: 2vw;
+    padding: .5em;
+    color: #8f5677;
+    font-family: rubik;
+    margin-top: 3rem;
+}
+#bar{
+    width: 30vw;
+    height: 6vh;
+            position: absolute;
+    bottom: 5vh;
+  display: none;
+    background-color: #fbfbfb;
+    border: #2d282e 4px groove;
+}
+#mh{
+    padding: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 20vw;
+    height: 6vh;
+    position: absolute;
+    bottom: 5vh;
+    right: 2vh;
+
+ 
+  
+}
+
+#health{
+    width: 100%;
+    background-color: #059a86;
+   height: 100%;
+     
+}
+
+#gameOver{
+        background-color: #fbfbfb;
+    height: 100vh;
+    width: 100%;
+    display: "none";
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

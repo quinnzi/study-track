@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEED THE PIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Libertinus+Keyboard&family=Rubik:ital,wght@0,300..900;1,300..900&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gamestyle.css">
+
+</head>
+<body>
+        <section id="gameStart">
+        <h1>Go Bact Home</h1>
+        
+        <button id="start">Get to Dinner</button>
+        <p id="over"></p>
+    </section>
+        <section id="dead">
+        <h1>Game Over!</h1>
+        <p style="color: #fbfbfb;">You shrunk to the size of an atom and got plowed over by O2 molecules :D</p>
+        <button id="try">Try Again</button>
+    </section>
+            <section id="gameOver" style="background-color: #2d282f;">
+        <h1>You made it to dinner!</h1>
+        <img style="width: 45vw; height: auto" src="New Piskel (2).png">
+    </section>
+    <p id="int" style="user-select: none;">Use your arrow keys to move left and right. Press the up arrow key to jump :D</p>
+    
+    <div id="dia">
+        <h1 id="char" style="user-select: none;"></h1>
+            <p id="log" style="user-select: none;"></p>
+        </div>
+    <div id="bar">
+        <div id="health"></div>
+    </div>
+        <div id="mh">
+        <h1 style="text-align: center; margin-left: 2rem; font-size: 1.8vw; color: #fbfbfb; text-shadow: black 2px 5px 3px;">Health</h1>
+        <img id="h1" src="heart.png" style="width: 10vw; height: 10vh;">
+        <img id="h2" src="heart.png" style="width: 10vw; height: 10vh;">
+    </div>
+    <canvas id="canvas1">
+        
+<img src="witch-spritesheet-flipped.png" id="witch">
+<img src="witch-spritesheet.png" id="witchF">
+<img src="Bacteria.png" id="bac">
+<img src="floor.png" id="floor">
+<img src="enemies (1).png" id="e">
+<img src="e.png" id="forest">
+<img src="Springtail.png" id="bug">
+<img src="goo.png" id="goo">
+    </canvas>
+</body>
+<script>
+    document.getElementById("gameStart").style.display = "flex"
+    document.getElementById("gameOver").style.display = "none"
+    const start = document.getElementById("start")
+    start.addEventListener('click', ()=>{
+        document.getElementById("gameStart").style.display = 'none'
+          document.getElementById("canvas1").style.display = 'block'
+    })
+    const dead = document.getElementById("try")
+    dead.addEventListener('click', ()=>{
+        document.getElementById("dead").style.display = 'none'
+          document.getElementById("canvas1").style.display = 'block'
+            document.getElementById("mh").style.display = "block"
+    })
+
+</script>
+<script src="game.mjs" type="module"></script>
+</html>
