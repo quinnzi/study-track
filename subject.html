@@ -41,11 +41,11 @@
 </section>
 </body>
 <footer style="width: 100%; display: flex; flex-direction: column; align-items: center;"> <h2 style="background-color: rgb(255, 216, 250); width: 100%;">Get your coins by playing below!</h2>
-              <iframe src="./gtd/index.html" width="100%" height="500px" style="border: none;"></iframe></a></footer>
+              <iframe src="./gtd/index.html" width="100%" height="954px" style="border: none;" id="game"></iframe></a></footer>
 <script src="no.js"></script>
 <script>
 
-
+let coinsHere = 0
 
 
 
@@ -67,7 +67,17 @@
    else{
      seshData =  JSON.parse(localStorage.getItem(searchValue))
    }
-    const ses = {studyNum, notes}
+  
+    let points = 1 * studyNum
+    if (studyNum > 30){
+        const mul = studyNum - 30
+        const sure = mul * 20
+        points = 10 + sure
+    }
+ const prev = parseInt(localStorage.getItem('coins'))
+ const total = prev + points
+ localStorage.setItem('coins', total)
+   const ses = {studyNum, notes, total}
     seshData.push(ses)
     localStorage.setItem(nameS.textContent, JSON.stringify(seshData))
     const container = document.createElement('div')
@@ -82,15 +92,7 @@
        container.appendChild(timeS)
          container.appendChild(noteDisplay)
     document.getElementById("sessions").appendChild(container)
-    let points = 1 * studyNum
-    if (studyNum > 30){
-        const mul = studyNum - 30
-        const sure = mul * 20
-        points = 10 + sure
-    }
- const prev = parseInt(localStorage.getItem('coins'))
- const total = prev + points
- localStorage.setItem('coins', total)
+    coinsHere = total
     })
 
 
@@ -124,6 +126,15 @@
  }
 
 displaySessions()
+if(parseInt(localStorage.getItem("coins")) > 100){
+
+            document.getElementById("game").style.display = "block"
+
+
+    }
+else{
+            document.getElementById("game").style.display = "none"
+}
 </script>
 
 </html>

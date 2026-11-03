@@ -19,52 +19,30 @@
 </header>
 <div id="study-bar"></div>
 <section class="dash" style="height: 65vh;   flex-direction: row; justify-content: space-between;">
-    <div>
+    <div style="display: flex; align-items: center; justify-content: center;">
     <p id="coins" style="font-size: 4vw; text-align: center;">Coins: 0</p>
        
     </div>
-    <div>
-
-    <div>
-    <img src="Pebble.png"  width="135vw">
-    <p>Weapon: Rock</p>
-    <p>Damage: 1</p>
-    <button style="font-size: 1vw; padding: 1rem; margin-bottom: 2rem;">Increase damage by 1</button>
-    </div>
-
-   <div style="background-color: rgba(236, 236, 236, 0.678); box-shadow: rgb(31, 31, 31) 6px px 3px;">
-    <img src="knife.png" width="135vw">
-    <p>Weapon: Knife</p>
-    <p>Damage: 2</p>
-    <button style="font-size: 1vw; padding: 1rem;">Increase damage by 1</button>
-   </div>
-
-      <div>
-    <img>
-   </div>
-      <div>
-    rrrrr
-   </div>
-   </div>
+    
 </section>
 <section id="dash">
     <div class="card">
-        <h2>Biology</h2>
-    </div>
-        <div class="card">
-        <h2>Science</h2>
+        <h2>Mathematics</h2>
     </div>
         <div class="card">
         <h2>Biology</h2>
     </div>
         <div class="card">
-        <h2>Science</h2>
+        <h2>Geography</h2>
     </div>
         <div class="card">
-        <h2>Biology</h2>
+        <h2>English</h2>
     </div>
         <div class="card">
-        <h2>Science</h2>
+        <h2>Reading</h2>
+    </div>
+        <div class="card">
+        <h2>ACT</h2>
     </div>
 </section>
 <footer>
@@ -73,6 +51,7 @@
 </footer>
 </body>
 <script>
+ 
     document.getElementById("coins").textContent = "Coins: " + localStorage.getItem('coins')
 </script>
 <script src="no.js"></script>

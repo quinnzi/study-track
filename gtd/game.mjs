@@ -18,8 +18,8 @@ window.addEventListener('load', function(){
     let moveNum = 0
     const gameBoard = canvas1;
     const board = gameBoard.getContext("2d");
-    gameBoard.width = 1000
-   gameBoard.height = 800
+    gameBoard.width = 1908
+   gameBoard.height = 954
 
 
     class Game {
