@@ -26,6 +26,7 @@ So, to use this tool, you click on a subject card and type in the amount of time
  <h3>The Reward Game</h3>
   - The game is made with html canvas and JS modules. Some things I fixed this week were the enemy spawning logic, among other things with the enemies. A bit more about the structure of the game itself:
 <blockquote>All of the game visuals were displayed by HTML canvas with the assistance of the requestAnimationframe function, clearRect function, and drawImage function. The requestAnimationframe function calls your clearRect and drawImage function if you provide them within the function parameter of the requestAnimationframe function. This way, the game draws the images smoothly in real time rather than being slow and not immediately reactant to the controls.
+ <br>
 <br>
 <br>
 I had to use clearRect() to clear the whole canvas before I drew something--like the player or an enemy. Otherwise, the player image would double because you never cleared it.
