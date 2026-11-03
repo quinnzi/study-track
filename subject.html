@@ -40,7 +40,7 @@
     </div>
 </section>
 </body>
-<footer style="width: 100%; display: flex; flex-direction: column; align-items: center;"> <h2 style="background-color: rgb(255, 216, 250); width: 100%;">Get your coins by playing below!</h2>
+<footer style="width: 100%; display: flex; flex-direction: column; align-items: center;"> <h2 style="background-color: rgb(222, 255, 216); width: 100%;" id="coinsL"></h2>
               <iframe src="./gtd/index.html" width="100%" height="954px" style="border: none;" id="game"></iframe></a></footer>
 <script src="no.js"></script>
 <script>
@@ -48,12 +48,18 @@
 let coinsHere = 0
 
 
-
    const nameS = document.getElementById("subName")
+      const cnL = document.getElementById("coinsL")
+
    nameS.textContent = localStorage.getItem('subject')
    console.log(localStorage.getItem('subject'))
     const addSesh = document.getElementById("add")
-
+if(parseInt(localStorage.getItem("coins")) >= 20000){
+    cnL.textContent = "You can play now! Congrats!"
+}
+else{
+        cnL.textContent = `You have ${20000 - parseInt(localStorage.getItem("coins"))} left to earn until you can play. Get studying!`
+}
 
     addSesh.addEventListener('click', ()=>{
     const studyNum = document.getElementById("StudNum").value
@@ -133,7 +139,7 @@ console.log(parseInt(localStorage.getItem("coins")))
 
 
 
-if(parseInt(localStorage.getItem("coins")) > 20000){
+if(parseInt(localStorage.getItem("coins")) >= 20000){
 
 
             document.getElementById("game").style.display = "block"
