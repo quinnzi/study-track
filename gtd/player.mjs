@@ -18,44 +18,14 @@ let linesNeeded = 0
 let currentChar = "rando"
 let hits = 0
 let ei = 0
-const enemyLines = [
-    ["Why try to go back? Your parents don't want you there"],
-    ["You were always the disappointment of the family. They just invited you out of politeness"],
-    ["How did moving out go for you? Do you enjoy being a nobody, in a small house, surrounded by other nobodies?"],
-    ["I wonder how you could matter, when no one on this dirt rock has ever loved you."],
-     ["You'll die and no one will remember you"],
-      ["Stay here, on the level of dust and germs now, right where you belong"],
-       ["You know what will happen if you go to that dinner."],
-        ["Killing me won't do anything but make you a worse person, then the sack of lazy flesh that you are."],
-          ["I want to see you dead and atom-sized so I can plow over you and lay your tiny corpse on your mothers skin. Just like you humans do whenever you take a step."],
-           ["Why do you even want to go out there? What's waiting on you, save for the emptiness"],
-           ["'I wanna be a nurse when I grow up!' Couldn't hack it, could you?"],
-           ["Be honest with yourself, you don't have a life to lose." ]
+const studyLines = [
+   ["You studied me today, congrats! Here are your coins :)"],
+    ["You haven't studied me today :(. Go study and I can give you coins to upgrade your weapons!"]
 ]
 
-const parentLines = [
- {m:"Oh, Angel! You made it! Late as always, everyone"},
-  {m:"I was worried you'd be hungry, but looks like you're...well fed."},
-                 {d:"What took you so long?"},
-                  {d:"And why is your hair that heinous color?"},
-                {m:"Oh, be nice, Saran. But he's right. That color does not suit you."},
-                {m:"Nor does that haircut if we're being frank."},
-                  {m:"You, know, if you just visited us more often, be could stop you from embarassing yourself like this."},
-                    {d:"The girl doesn't visit because she doesn't love us."},
-                     {m:"Saran!"},
-                      {d:"Just being frank. I mean, when was the last time you got a call from her?"},
-                       {m:"Hmm, yes, not even a letter."},
-                       {m:"I assumed she had had found a boyfriend...but I suppose not"},
-                        {m:"Angel. when are you---"},
-                        {m:"..."},
-                        {m:"...Angel?"},
-                        {m:"..."},
-                        {m:"Where did she go?"}
-                        
-] 
 const items = []
      let board
-     const bacteria = [
+     const subjects = [
     {name: "Eli", 
         xPosition: 1200, 
         yPosition: 50, 
@@ -69,127 +39,7 @@ const items = []
 
         ],
         neededItem: "Rosie"
-    },
-    {name: "Ella", 
-        xPosition: 700, 
-        yPosition: 70, 
-        x: 0, 
-        y: 640, 
-        dialouge:[
-            ["Have you considered dying your hair? That shade really washes you out..."],
-           [ "Your mother was right. Seriously. Hair like that with skin like yours?"],
-            ["Ever try washing your hair?"],
-           [ "You look like such a mess lately. I mean--- when's the last time you combed that hair?"],
-            ["Homeless person hair."]]
-        }
-
-    ,
-    {name: "Lace", xPosition: 1600, yPosition: 50, x: 0, y: 320,
-        dialouge:[
-
-            [{p: "Do you have any weapons?"},
-            {n: "Mmm, nmmm, I dmmmt huuv a weapum."},
-             {n: "Steph prob wood tho"}],
-            [{p: "Can I have that milk?"},
-                {n:"Milk? Mmm"},
-           {n:"Nmmm"}]
-
-        ],
-             neededItem: "Steph"
-    },
-    {name: "Stom", xPosition: 320, yPosition: 10, x: 0, y: 0,
-          dialouge:[
-            [{n: "Oh hey there! I've never seen you before. Who are you?"},
-            {p: "I'm Angel! I was trying to drive to my parent's place for dinner, but a magic star shrank me. Who are you?"},
-            {n: "Just a Stoma that grew a bit too large."},
-            {n:"They said i was getting to big for my britches... so they kicked me out :("},
-            {n:"Say, you're looking to grow?"},
-            {p: "Yeah, my parents will rip me to shreds if I'm late."},
-            {n: "Well, the weird goo at the end of mushroom forest stretches you up. Though I wouldn't go there without a weapon"},
-            {n:"I don't have one, but if you need any more info, feel free to ask me!"},
-            {n:"Talk to some bacteria, see if they can help you. Though-- as a warning, not all of them are nice."}],
-            [{n: "Back again? You can go to mushroom forest whenever you like. Just walk past Biffi."},
-            {n:"Remember, mushroom ghosts take 5 damage to kill. Spores take 3, and the beast--well, no one's ever killed it before."},
-            {n: "Also, like I said, BE CAREFUL WHO YOU TALK TOO. You're so tiny. If you shrink into yourself anymore, I fear it won't be long before you're crushed by an atom."}
-
-            ]
-        ],
-        neededItem: "Stom"
-    },
-
-    {name: "Rosie", xPosition: 1100, yPosition: 10, x: 640, y: 320,
-        dialouge:[
-            [ {p: "Do you have any weapons?"},
-                {n:"Funny way to start a conversation, love."},
-                
-            {n: "But yes. I do."},
-            {p: "Great! Can I have one?"},
-            {n: "Hasn't anyone in this world ever told you nothing comes for free?"},
-            {p: ":("},
-            {n: "Go talk to Eli and get him to tell you where he hid my *red* rose"}], // and after this last line of dialouge {Rosie: false} is pushed to missionsComplete and it enables the player to have a weapon later on 
-            [{n: "The pond? Of course he did. Ugh. The insolent gut dwelling thing."},
-            {n: "I suppose a promise is a promise. Here. It deals 3 damage."},
-            {n:"**You obtained THROWING KNIFE!** (Deals 3 damage)"}
-        ]
-        ],
-             neededItem: "Rose"
-    },
-    {name: "Gon", xPosition: 800, yPosition: 10, x: 0, y: 960,
-         dialouge:[
-    ["You're going to your parent's house in THAT?"], 
-  [  "Your parents don't love you"],
-   [ "You were always the disappointment"],
-    ["Went and got yourself shrunk. How stupid"],
-    ["I wonder how you could matter, when no one on this dirt rock has ever loved you."]]
-    },
-    {name: "Steph", xPosition: 420, yPosition: 10, x: 640, y: 960,
-            dialouge:[
-     [{p: "Do you have a weapon?"},            
-    {n: "Weapons! Why of course I do! What do you need them for?"},
-      {p: "I'm going to the forest of mushrooms to get goo that can make me tall again."}, 
-    {n:"The forest of mushrooms? How thrilling! I'm gonna tell you what all is there now!"},
-    {n:"There's ghosts that take 3 damage to kill. Spores take 2. The beast whose name shall not be spoken takes much much more."},
-    {n:"Yup! Anyways what were we talking about?"},
-      {p: "Weapons...?"}, 
-    {n:"Weapons! Right. Weapons. I can only part with this one that deals 1 damage."},
-      {p: "Seriously? One?"}, 
-    {n:"Hey! I'm being generous! But I guess I could part with my rocket launcher if you did something for me..."},
-    {n:"Get me a milk. I want a taste!"},
-    {n:"**You obtained STONE!** (Deals 1 damage)"}
-],
-    [
-        {n:"Nice! Here's your rocket launcher, friend ;)"
-            
-        },
-         {n:"**You obtained ROCKET LAUNCHER!** (Deals 7 damage)"}
-    ]
-    ],
-             neededItem: "Milk"
-    },
-    {name: "Steph Friends", xPosition: 120, yPosition: 10, x: 960, y: 960, 
-          dialouge:[
-  [  "Ew. Look at that face"], 
-    ["Why are you even talking to us?"],
-    ["Please go choke on a spore"],
-    ["Seriously? I can't believe you're actually trying to talk to us."],
-   [ "Why don't you take the hint and go bugger off, hm?"]]
-    },
-
-    {name: "Biffii", xPosition: 1650, yPosition: 10, x: 640, y: 640,
-          dialouge:[
-    [{n:"Oh. Weapon?"},
-    {n:"No. Steph bought all of them from me."},
-    {n:"All for only a penny"},
-    {n:"Now I'm broke and all I have is this milk."}],
-    [{n:"Milk? But my family needs it to survive the frost"},
-    {n:"If you really need it-- here. Enjoy."},
-    {n:"**You obtained MILK!**"}
-
-]
-   ],
-    neededItem: "Steph"
     }
-
     //needed item is the item you need to have in the array of items in order to unlock the second round of dialouge
 
 
@@ -207,7 +57,7 @@ export class Player {
         this.height = 320 
         this.width = 320 
         this.pheight = this.height * shrinkFac
-        this.char = bacteria[0]
+        this.char = "English"
         this.x = 0  // across. this is obvious stuff cmon now. use thes to move the player.
         this.y = this.game.height - this.pheight -150  // this is bc html canvas y is inverted. y starts from  the top of the canvas. say the canvas is 20 cm and the sprite is 6. subtracting gives you 4 which is the amount of units you'd need to travel to get to 6. So y is basically distance from top.
         this.idle = document.getElementById('witch')
@@ -450,52 +300,7 @@ if (bugState === 15){
     
 }
    }
-help(){
-    if (bugHealth === 0){
-    
-    let talk = 0
-    if(!over){
-document.getElementById("gameOver").style.display = "flex"
-document.getElementById("canvas1").style.display = "none"
-document.getElementById("gameStart").style.display = "none"
-    if(talk === parentLines.length - 1){return}
-   let lineProp
-   function HELP() {
-        if(talk === parentLines.length - 1){
-          document.getElementById("canvas1").style.display = 'none'
-          over = true
-          bugHealth = 45
-          talk = 0
-        
-}
-    console.log("whyyyyy")
-   
-     console.log(talk)
-    let name 
- 
 
-    if (parentLines[talk].d){
- name = "Dad"
-         document.getElementById("dia").style.display = "flex"
-    document.getElementById('char').textContent = name
-    document.getElementById("log").textContent = parentLines[talk].d
-    talk++
-}
-else{
-    name = "Mom"
-           document.getElementById("dia").style.display = "flex"
-    document.getElementById('char').textContent = name
-    document.getElementById("log").textContent = parentLines[talk].m
-    talk++
-    }
-console.log(parentLines[0].m)
-    
-   }
-
-
-}
-    return}
-}
 drawEnemies(context){
       if(shrinkFac === 0.125){
          spawned.splice(0, spawned.length)
@@ -562,6 +367,7 @@ document.getElementById('char').textContent = "Entity"
         
      })
 }
+
 dialouge(character){
 let lines = ""
 
@@ -740,6 +546,7 @@ document.getElementById('char').textContent = name
       
  linesDone++ 
 }
+
 drawBug(context){
    if (bugHealth === 0){
         const keyz = this.game.input.keys

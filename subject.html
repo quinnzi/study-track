@@ -12,7 +12,7 @@
 <body style="display: flex; flex-direction: column;">
   
 <header id="head">
-    <h1 style="    font-size: 4.5vw; padding: 1.2rem;">Biology</h1>
+    <h1 style="    font-size: 4.5vw; padding: 1.2rem; " id="subName">Biology</h1>
 </header>
 
 <section class="dash">
@@ -22,16 +22,108 @@
         <a class="r-link">link again</a>
 <input id="link-add" style="margin-top: 2rem; width: 100%;" placeholder="Add a resource link">
         <button style="background-color: #75B8C8; font-size: 1.5vw; margin-top: 3rem;">Save</button>
+
     </div>
     
 
         <div style="width: 100%; display: flex; flex-direction: column; margin-top: 4rem; align-items: center;">
         <div style="display: flex; margin-bottom: 5rem;"><h3 style="font-family: montserrat;">Studied Today?</h3><input type="checkbox"></div>
-        <input type="number" placeholder="How many minutes did you study?" >
-        <input type="text" placeholder="Notes" style="height: 18vh;">
-        <button>Add your time</button>
+        <input type="number" placeholder="How many minutes did you study?" id="StudNum" >
+        <input type="text" placeholder="Notes" style="height: 18vh;" id="notes">
+        <button id="add">Add your time</button>
+                <div id="sessions">
+            <div class="sesh">
+             
+              <p> notes</p>
+            </div>
+        </div>
     </div>
 </section>
 </body>
-<script src="Function.js"></script>
+<footer style="width: 100%; display: flex; flex-direction: column; align-items: center;"> <h2 style="background-color: rgb(255, 216, 250); width: 100%;">Get your coins by playing below!</h2>
+              <iframe src="./gtd/index.html" width="100%" height="500px" style="border: none;"></iframe></a></footer>
+<script src="no.js"></script>
+<script>
+
+
+
+
+
+   const nameS = document.getElementById("subName")
+   nameS.textContent = localStorage.getItem('subject')
+   console.log(localStorage.getItem('subject'))
+    const addSesh = document.getElementById("add")
+
+
+    addSesh.addEventListener('click', ()=>{
+    const studyNum = document.getElementById("StudNum").value
+    const notes = document.getElementById("notes").value
+
+    const searchValue = localStorage.getItem('subject')
+
+    let seshData  = []
+    if(!localStorage.getItem(searchValue))
+   { seshData = []}
+   else{
+     seshData =  JSON.parse(localStorage.getItem(searchValue))
+   }
+    const ses = {studyNum, notes}
+    seshData.push(ses)
+    localStorage.setItem(nameS.textContent, JSON.stringify(seshData))
+    const container = document.createElement('div')
+    container.className = "sesh"
+
+    const timeS = document.createElement('h2')
+    timeS.textContent = "Studied for:" + " " + studyNum + " minutes"
+
+    const noteDisplay = document.createElement('p')
+    noteDisplay.textContent = "Notes:" + notes
+
+       container.appendChild(timeS)
+         container.appendChild(noteDisplay)
+    document.getElementById("sessions").appendChild(container)
+    let points = 1 * studyNum
+    if (studyNum > 30){
+        const mul = studyNum - 30
+        const sure = mul * 20
+        points = 10 + sure
+    }
+ const prev = parseInt(localStorage.getItem('coins'))
+ const total = prev + points
+ localStorage.setItem('coins', total)
+    })
+
+
+
+ function displaySessions(){
+     const sValue = localStorage.getItem('subject')
+    const dS = JSON.parse(localStorage.getItem(sValue))
+    if(!localStorage.getItem(sValue)){
+        return
+    }
+    
+   
+    console.log(dS)
+    console.log(localStorage.getItem(nameS.textContent))
+        console.log(localStorage.getItem(nameS.textContent))
+    for (const sesh of dS) {
+         const container = document.createElement('div')
+    container.className = "sesh"
+
+    const timeS = document.createElement('h2')
+    timeS.textContent = "Studied for:" + " " + sesh.studyNum + " minutes"
+
+    const noteDisplay = document.createElement('p')
+    noteDisplay.textContent = "Notes:" + sesh.notes
+
+       container.appendChild(timeS)
+         container.appendChild(noteDisplay)
+    document.getElementById("sessions").appendChild(container)
+    }
+   
+ }
+
+displaySessions()
+</script>
+
 </html>
