@@ -74,7 +74,10 @@ let coinsHere = 0
         const sure = mul * 20
         points = 10 + sure
     }
- const prev = parseInt(localStorage.getItem('coins'))
+ let prev = parseInt(localStorage.getItem('coins'))
+ if(prev === null || !prev){
+prev = 0
+ }
  const total = prev + points
  localStorage.setItem('coins', total)
    const ses = {studyNum, notes, total}
@@ -126,7 +129,12 @@ let coinsHere = 0
  }
 
 displaySessions()
+console.log(parseInt(localStorage.getItem("coins")))
+
+
+
 if(parseInt(localStorage.getItem("coins")) > 100){
+
 
             document.getElementById("game").style.display = "block"
 
